@@ -37,6 +37,16 @@ k \; \left\{
 ポテンシャル散乱と、中性子が一旦原子核に取り込まれ複合核となった後にエネルギーを失わずに放出される共鳴散乱がある。
 非弾性散乱ではターゲット核に移ったエネルギーの一部が原子核の励起エネルギーに使われる。
 そのため、非弾性散乱は中性子のエネルギーがターゲット核の最低の励起エネルギーよりも大きい場合にのみ起こる。
+Fig.~\ref{fig:neutron_scattering}は、いくつかの核種の弾性散乱断面積を示している。黒鉛のように配列的に並ぶ材料に
+対しては、低エネルギー中性子は回析を起こす（干渉性散乱）。また、水分子の水素原子のように、結合によって
+自由に動き回れないことによる断面積の変化も見られる（非干渉性非弾性散乱）。
+中エネルギー領域の中性子に対しては核力のポテンシャルによって散乱し、断面積は一定の値を示す。
+高エネルギーの領域の中性子に対しては核力のポテンシャルを超えて原子核に取り込まれる部分が出てくる。
+
+Fig.~\ref{fig:neutron_inelastic_scattering}は、\ce{^{238}U}と\ce{^{90}Zr}の非弾性散乱断面積、
+Fig.~\ref{fig:neutron_inelastic_scattering_U238}は\ce{^{238}U}の励起準位を考慮した非弾性散乱断面積を示している。
+
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{figure/CrossSecElastic.eps}
@@ -55,7 +65,7 @@ k \; \left\{
   \centering
   \includegraphics[width=0.8\textwidth]{figure/U238Inela_nx.eps}
   \caption{\ce{^{238}U}の非弾性散乱(MT=4,51,52,53,54)の断面積}
-  \label{fig:neutron_scattering_reaction}
+  \label{fig:neutron_inelastic_scattering_U238}
 \end{figure}
 
 
@@ -66,19 +76,30 @@ k \; \left\{
 これに分類されるものとしては、複合核から$\gamma$線を放出する放射捕獲反応、荷電粒子を放出する荷電粒子放出反応などがある。
 原子炉において利用される核分裂反応や、入射中性子のエネルギーが高い場合に起こる２個以上の中性子が放出される反応も
 この吸収反応に分類される。
+Fig.~\ref{fig:neutron_absorption_Sm149}は、\ce{^{149}Sm}の(n,$\gamma$)反応、
+Fig.~\ref{fig:neutron_capture_B10}は\ce{^{10}B}の(n,$\alpha$)反応、
+Fig.~\ref{fig:neutron_fission}は\ce{^{235}U}の核分裂反応の断面積を示している。
+
+それぞれの反応で共通して、低エネルギー領域では1/vに比例して断面積は減少している。
+共鳴を持つ核種では中エネルギー領域で共鳴を起こすことも共通しているが、高エネルギー領域では捕獲断面積
+は単調に減少するのに対し、核分裂断面積は階段状に増加することが分かる。
+これは高エネルギーの中性子による核分裂反応では、中性子が吸収されてからすぐには割れず、1つ以上の中性子を
+放出してから核分裂を起こす、マルチチャンス核分裂が存在するためである。
+Fig.~\ref{fig:neutron_fission_U238}は、\ce{^{238}U}の核分裂反応において、分裂前に放出される
+中性子の数ごとに分けた断面積(MT=19,20,21)と、すべての核分裂断面積の和(MT=18)を示している。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{figure/SmMT102.eps}
   \caption{\ce{^{149}Sm}の吸収反応(MT=102)の断面積}
-  \label{fig:neutron_absorption}
+  \label{fig:neutron_absorption_Sm149}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{figure/B10MT107.eps}
   \caption{\ce{^{10}B}の吸収反応(MT=107)の断面積}
-  \label{fig:neutron_capture}
+  \label{fig:neutron_capture_B10}
 \end{figure}
 
 \begin{figure}[htbp]
