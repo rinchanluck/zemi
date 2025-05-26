@@ -1,0 +1,112 @@
+
+\subsection{中性子束と中性子流}
+原子炉物理の中で頻出する単語に「\emph{中性子束}」があり、このパラメータは
+一般に$\phi$で示す。これとよく似た単語に「\emph{中性子流}」があり、紛らわしい。
+ここではまずこの基本的な2つのパラメータについて説明する。
+
+\subsubsection{角度中性子密度}
+\newcommand{\SpcAng}{\mathbf{\hat{\Omega}}} % 飛行方向の単位ベクトル
+\newcommand{\rEOt}{\mathbf{r}, E, \SpcAng, t} % 文字の()内変数
+ある座標$\mathbf{r}$で、あるエネルギー$E$を持ちある方向$\SpcAng$に飛行する中性子の、
+ある時刻$t$においての密度を「\emph{角度中性子密度}(angular neutron density)」
+$n(\rEOt)$と呼び、次のように定義される。なお$\SpcAng$は飛行方向の単位ベクトルである。
+\begin{align}
+  n(\rEOt) dVdEd\SpcAng &= 
+  \left(
+  \begin{aligned}
+    &\quad\text{時刻$t$に、} \\
+    &\quad\text{位置$\mathbf{r}$まわりの体積$dV$内に存在し、}\\
+    &\quad\text{エネルギーが$E$まわりの幅$dE$内にあり、} \\
+    &\quad\text{方向$\SpcAng$まわりの$d\SpcAng$に向かって飛行する}\\
+    &\quad\text{中性子数の期待値}
+  \end{aligned}
+  \right)
+  \label{AngDens}
+\end{align}
+
+\subsubsection{角度中性子束と角度中性子流}
+角度中性子密度を用いて、\emph{角度中性子束}(angular neutron flux)
+\footnote{平川先生の黄色の教科書では$\Phi$としているが太字っぽくて
+ベクトルに見えてしまうため、代わりに使われることがある$\psi$で表記する}と
+\emph{角度中性子流}(angular neutron current)を定義できる。
+\begin{align}
+  \text{角度中性子束} &= \psi(\rEOt) = v(E) n(\rEOt) \label{AngFlux}\\
+  \text{角度中性子流} &= \mathbf{j}(\rEOt) = v(E) n(\rEOt) \SpcAng = \psi(\rEOt) \SpcAng \label{AngCrnt}
+\end{align}
+角度中性子束と角度中性子流はよく似ているが、\emph{束がスカラー量}で\emph{流がベクトル量}であるという
+根本的な違いがある。
+
+\vskip\baselineskip
+\begin{shadebox}
+  \vskip.5\baselineskip
+  \toi 角度中性子流について
+  \begin{align}
+    \mathbf{j}(\rEOt) d\mathbf{A} dE d\SpcAng \notag
+  \end{align}
+  という積はどのような物理的意味を持つだろうか。\\
+  なお、$d\mathbf{A}$は「位置$\mathbf{r}$にある微小な面」として定義される面要素であり、
+  この面に垂直な単位ベクトル$\mathbf{e_s}$を用いて
+  $d\mathbf{A} = \mathbf{e_s} \cdot dA$で定義される。\\
+\end{shadebox}
+\begin{comment}
+  時刻$t$に
+  エネルギーが$E$まわりの幅$dE$内にあり、
+  方向$\SpcAng$まわりの$d\SpcAng$に向かって飛行する中性子が
+  単位時間に
+  面$d\mathbf{A}$を通過する期待値
+\end{comment}
+\vskip8\baselineskip
+%\newpage
+
+\subsubsection{中性子密度、中性子束と中性子流}
+\newcommand{\rEt}{\mathbf{r}, E, t} % 文字の()内変数
+角度中性子密度、角度中性子束と角度中性子流をそれぞれ飛行方向で積分したのが
+\emph{中性子密度}(neutron density)、\emph{中性子束}(neutron flux)と
+\emph{中性子流}(neutron current)である。
+
+\begin{align}
+  \text{中性子密度} &= n(\rEt)
+   = \int_{4 \pi} n(\rEOt) \ d\SpcAng \label{ndens-E}\\
+  \text{中性子束} &= \phi(\rEt)
+   = \int_{4 \pi} \psi(\rEOt) \ d\SpcAng \label{flux-E}\\
+  \text{中性子流} &= \mathbf{J}(\rEt)
+   = \int_{4 \pi} \mathbf{j}(\rEOt) \ d\SpcAng \label{crnt-E}
+\end{align}
+
+エネルギーについても積分すれば、エネルギーに依存しない各物理量を定義できる。
+\newcommand{\rOt}{\mathbf{r}, \SpcAng, t} % 文字の()内変数
+\newcommand{\rt}{\mathbf{r}, t} % 文字の()内変数
+\newcommand{\nhat}{\mathbf{\hat{n}}} % 単位法線ベクトル
+\begin{align}
+  \text{中性子密度} &= n(\rt)
+   = \int_{0}^{\infty} n(\rEt) \ dE \label{ndens}\\
+  \text{中性子束} &= \phi(\rt)
+   = \int_{0}^{\infty} \phi(\rEt) \ dE \label{flux}\\
+  \text{中性子流} &= \mathbf{J}(\rt)
+   = \int_{0}^{\infty} \mathbf{J}(\rEt) \ dE \label{crnt}
+\end{align}
+
+\vskip\baselineskip
+\begin{shadebox}
+  \vskip.5\baselineskip
+  \toi 中性子束と中性子流は何が違うのだろうか。なぜ2つの似た概念を別個
+  用意する必要があるのだろうか。\\
+  ヒント：任意の単位ベクトル$\nhat$と中性子流の内積
+  $\mathbf{n} \cdot \mathbf{J}(\rEt)$の意味は？\\
+\end{shadebox}
+\begin{comment}
+  ある位置$\mathbf{r}$の点の中性子束、中性子流
+  （エネルギーに依存しない）について考える
+  中性子束は単位時間、単位面積あたりにその点を通過する中性子の総数
+  中性子流は単位時間、単位面積あたりにその点を通過する正味の中性子数
+  束は交通量調査で、流は正味の中性子の流れの方向と大きさを示す
+  束は点から伸びる中性子の動きのベクトルの長さを足し合わせたスカラー
+  流は点から伸びる中性子の動きのベクトルを全て足したベクトル
+  一般的な物理学で出てくる束（磁束など）は中性子流と同様の概念で
+  中性子束は原子炉物理に独特の概念である
+  これは核反応は中性子の運動の方向に関係なく核反応するから
+  束は核反応の量を見るための量
+  流は中性子の動きを見るための量
+\end{comment}
+\vskip8\baselineskip
+%\newpage

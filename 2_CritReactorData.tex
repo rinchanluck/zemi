@@ -1,6 +1,7 @@
 \section{臨界、原子炉と核データ}
 
-\subsection{増倍率と臨界}
+\subsection{中性子増倍率}
+\label{subsec:multipilication_factor}
 核分裂連鎖反応では、核分裂の反応数が指数関数的に増減する。
 1つの中性子が核分裂を引き起こし、2つの中性子が放出される体系を考える。この2つの核分裂中性子がどちらも
 次の核分裂を起こす場合、この体系の中性子増倍率$k$は次のようになる。
@@ -13,6 +14,7 @@
 時間を使う。この時間を\emph{即発中性子寿命}、または\emph{世代時間}と呼ぶ。
 中性子増倍率はある世代の中性子数を一つ前の世代の中性子数で割ったものとしても定義される。
 \begin{equation}
+  \label{eq:multi_factor}
   k = \frac{\text{ある世代の中性子数}}{\text{一つ前の世代の中性子数}}
 \end{equation}
 この中性子増倍率$k$が1より大きい状態を\emph{超臨界}、1より小さい状態を\emph{未臨界}、1の状態を\emph{臨界}と呼ぶ。
@@ -80,7 +82,7 @@ Fig.~\ref{fig:neutron_absorption_Sm149}は、\ce{^{149}Sm}の(n,$\gamma$)反応�
 Fig.~\ref{fig:neutron_capture_B10}は\ce{^{10}B}の(n,$\alpha$)反応、
 Fig.~\ref{fig:neutron_fission}は\ce{^{235}U}の核分裂反応の断面積を示している。
 
-それぞれの反応で共通して、低エネルギー領域では1/vに比例して断面積は減少している。
+それぞれの反応で共通して、低エネルギー領域では$1/v$に比例して断面積は減少している。
 共鳴を持つ核種では中エネルギー領域で共鳴を起こすことも共通しているが、高エネルギー領域では捕獲断面積
 は単調に減少するのに対し、核分裂断面積は階段状に増加することが分かる。
 これは高エネルギーの中性子による核分裂反応では、中性子が吸収されてからすぐには割れず、1つ以上の中性子を
@@ -115,6 +117,40 @@ Fig.~\ref{fig:neutron_fission_U238}は、\ce{^{238}U}の核分裂反応におい
   \caption{\ce{^{235}U}の核分裂反応(MT=18,19,20,21)の断面積}
   \label{fig:neutron_fission_U238}
 \end{figure}
+
+\subsection{臨界と中性子経済}
+\ref{subsec:multipilication_factor}節で述べたように、臨界状態では中性子増倍率$k$は1で、
+核分裂連鎖反応は外部から中性子を供給すること無しに、時間とともに増えも減りもせず一定の状態に維持される。
+臨界を実現するための条件を調べるためにはFig.~\ref{fig:neutron_cycle}に示すような核分裂で発生した中性子の一生を考えることが適当である。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/neutron_cycle.eps}
+  \caption{核分裂連鎖反応のサイクル}
+  \label{fig:neutron_cycle}
+\end{figure}
+
+ある大きさの核分裂物質を含む体系を考える。
+核分裂で発生したある世代の中性子は、体系から漏れるか、体系内にとどまるかのいずれかである。
+体系にとどまる確率を$P_\text{NL}$とする。
+体系にとどまった中性子は燃料に吸収されるか、燃料以外の物質に吸収されるかのいずれかである。
+吸収されるとした場合に燃料に吸収される確率を$P_\text{aF}$とする。
+燃料に吸収されたあと、それが捕獲反応ではなく核分裂反応を起こす確率を$P_\text{f}$とする。
+核分裂を起こすと中性子を$\nu$個放出し、以下この過程を繰り返す。
+\ref{equ:multi_factor}式より、増倍率$k$は次のように表される。
+\begin{equation}
+  k = P_\text{NL} \cdot P_\text{aF} \cdot P_\text{f} \cdot \nu
+\end{equation}
+以下この式をさらに定量的に考える。
+
+\subsubsection{熱中性子利用率}
+まず中性子が吸収される場合に、燃料に吸収される確率$P_\text{aF}$を考える。
+燃料に吸収される確率は、燃料の中性子吸収断面積$\Sigma_\text{aF}$と、
+体系全体の中性子吸収断面積$\Sigma_\text{a}$の比で表される。
+\begin{equation}
+  P_\text{aF} = \frac{\sigma_\text{aF}}{\sigma_\text{a}}
+\end{equation}
+
 % 章ごとの参考文献欄
 \printbibliography[segment=\therefsegment,heading=subbibliography]
 
