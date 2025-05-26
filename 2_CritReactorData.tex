@@ -137,7 +137,7 @@ Fig.~\ref{fig:neutron_fission_U238}は、\ce{^{238}U}の核分裂反応におい
 吸収されるとした場合に燃料に吸収される確率を$P_\text{aF}$とする。
 燃料に吸収されたあと、それが捕獲反応ではなく核分裂反応を起こす確率を$P_\text{f}$とする。
 核分裂を起こすと中性子を$\nu$個放出し、以下この過程を繰り返す。
-\ref{equ:multi_factor}式より、増倍率$k$は次のように表される。
+\ref{eq:multi_factor}式より、増倍率$k$は次のように表される。
 \begin{equation}
   k = P_\text{NL} \cdot P_\text{aF} \cdot P_\text{f} \cdot \nu
 \end{equation}
@@ -145,11 +145,78 @@ Fig.~\ref{fig:neutron_fission_U238}は、\ce{^{238}U}の核分裂反応におい
 
 \subsubsection{熱中性子利用率}
 まず中性子が吸収される場合に、燃料に吸収される確率$P_\text{aF}$を考える。
-燃料に吸収される確率は、燃料の中性子吸収断面積$\Sigma_\text{aF}$と、
+燃料に吸収される確率は、燃料の中性子吸収断面積$\Sigma_\text{a}^{F}$と、
 体系全体の中性子吸収断面積$\Sigma_\text{a}$の比で表される。
 \begin{equation}
-  P_\text{aF} = \frac{\sigma_\text{aF}}{\sigma_\text{a}}
+  P_\text{aF} = \frac{\Sigma_\text{a}^{F}}{\Sigma_\text{a}}
 \end{equation}
+
+この量を\emph{熱中性子利用率}(thermal utilization factor)と呼び$f$という記号で表す。
+\begin{equation}
+  f = P_\text{aF} = \frac{\Sigma_\text{a}^{F}}{\Sigma_\text{a}}
+\end{equation}
+
+\subsubsection{$\eta$(イータ)}
+次に、燃料に吸収された中性子が核分裂を起こす確率$P_\text{f}$を考える。
+$P_\text{f}$は燃料に吸収されたときに核分裂を起こす確率であるから、
+燃料の核分裂断面積$\Sigma_\text{f}^{F}$と燃料の中性子吸収断面積$\Sigma_\text{a}^{F}$の比で表される。
+\begin{equation}
+  P_\text{f} = \frac{\Sigma_\text{f}^{F}}{\Sigma_\text{a}^{F}}= \frac{\sigma_\text{f}^{F}}{\sigma_\text{a}^{F}}
+\end{equation}
+
+核分裂を起こすと平均して$\nu$個の中性子が放出されるので、核燃料により中性子が再生される割合を
+記号$\eta$で次のように表す。
+\begin{equation}
+  \eta = \nu \cdot \frac{\sigma_\text{f}^{F}}{\sigma_\text{a}^{F}} = \nu P_\text{f}
+\end{equation}
+
+この値を\emph{再生率}(reproduction factor)と呼ぶ。
+
+\subsubsection{無限増倍率}
+以上の値を用いて、増倍率$k$を書き直すと次のようになる。
+\begin{equation}
+  k = P_\text{NL} \cdot f \cdot \eta
+\end{equation}
+
+$P_\text{NL}$は体系の形に依存するため考えるのが難しい。そこで無限に大きい原子炉を考えて$P_\text{NL}$を1とする。
+この時の増倍率を\emph{無限増倍率}(infinite multiplication factor)と呼び、記号$k_\infty$で表す。
+\begin{equation}
+  k_\infty = f \cdot \eta
+\end{equation}
+
+実際には$P_\text{NL}$は1より小さいため、$k_\infty > 1$でない限り原子炉が臨界になることは無い。
+
+\subsubsection{高速中性子核分裂因子}
+以上の式では、熱中性子による核分裂のみが考えられているが、
+原子炉では高速中性子による核分裂も利用される。これはその世代の中性子の数をすこし増やす。
+この硬化を表す量を高速中性子核分裂因子(fast fission factor)と呼び、記号$\epsilon$で表す。
+\begin{equation}
+  \epsilon = \frac{\text{高速および熱中性子による全核分裂中性子数}}{\text{熱中性子による核分裂中性子数}}
+\end{equation}
+
+\subsubsection{共鳴を逃れる確率}
+また、中性子が発生直後の高速領域から熱領域まで減速する過程で、\ce{^{238}U}のような
+共鳴を持つ核種に吸収されて失われることも考慮する必要がある。
+減速過程で吸収されずに熱中性子領域まで減速される中性子の割合を\emph{共鳴を逃れる確率}(resonance escape probability)と呼び、
+記号$p$で表す。
+
+この量は燃料と減速材の割合に大きく依存するとともに、その形状、配列にも依存する。
+
+\subsubsection{4因子公式と6因子公式}
+以上の値を用いて増倍率$k$を表すと、次のようになる。
+\begin{equation}
+  k_\infty = \epsilon \cdot p \cdot \eta \cdot f
+\end{equation}
+
+この無限増倍率を表す式を\emph{4因子公式}と呼ぶ。
+さらに中性子が体系から漏れない確率$P_\text{NL}$を、高速中性子の漏れない確率$P_\text{FNL}$
+と熱中性子の漏れない確率$P_\text{TNL}$に分けると増倍率の式は次のように書き直せる。
+\begin{equation}
+  k = k_\infty P_\text{NL} =\epsilon \cdot p \cdot \eta \cdot f
+\cdot P_\text{FNL} \cdot P_\text{TNL}
+\end{equation}
+
+この式を\emph{6因子公式}と呼び、この$k$を\emph{実効増倍率}(effective multiplication factor)と呼ぶ。
 
 % 章ごとの参考文献欄
 \printbibliography[segment=\therefsegment,heading=subbibliography]
