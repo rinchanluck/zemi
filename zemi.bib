@@ -1,0 +1,35 @@
+@comment{
+プリアンブルに以下を定義してください
+% URLコマンドを定義(URL：という形式で表示)
+\renewcommand{\url}{\begingroup \def\UrlLeft{URL:\ <}\def\UrlRight{>}%
+        \urlstyle{tt}\Url}
+
+これにより、
+note="\\ {\url{http://www.hoge.com/}}"
+と書けば参考文献にURLがいい感じに出力されるはず
+}
+@book{National-GHG-Inventory-Doc-Jpn-2025,
+  author    = {国立研究開発法人 国立環境研究所},
+  editor    = {温室効果ガスインベントリオフィス（GIO）},
+  title     = {日本国温室効果ガスインベントリ報告書2025 年},
+  year      = {2025},
+  note      = {\\ {\url{https://www.nies.go.jp/gio/archive/nir/ua88o20000099s22-att/NID-JPN-2025-v3.0_J_gioweb.pdf}}},
+}
+@misc{WNN-LEUplus-2025Apr,
+  title     = {Westinghouse's LEU+ fuel loaded into Vogtle 2},
+  author    = {World Nuclear News},
+  year      = {2025},
+  note      = {\\ {\url{https://world-nuclear-news.org/articles/westinghouse--leu-fuel-loaded-in-vogtle-2}} アクセス日:2025-05-19}
+}
+@misc{FEPC-LEUplus-2024Feb,
+  title     = {\textbf{\emph{{[米国]} NRC、商業発電用として初めてウラン濃縮度8\%の原子燃料の製造を承認}}},
+  author    = {電気事業連合会},
+  year      = {2024},
+  note      = {\\ {\url{https://www.fepc.or.jp/pr/kaigai/kaigai_topics/1261489_4115.html}} アクセス日:2025-05-19}
+}
+@misc{JRIA-MedRI-2021Nov,
+  title     = {医療用ＲＩの需要と供給について},
+  author    = {北岡 麻美},
+  year      = {2021},
+  note      = {\\ {\url{https://www.aec.go.jp/kaigi/senmon/radioisotope/siryo01/4_haifu.pdf}}}
+}

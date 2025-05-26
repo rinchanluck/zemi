@@ -1,0 +1,83 @@
+\documentclass[a4paper,12pt]{jsarticle}
+
+% 数式
+\usepackage{siunitx} % SI単位系表示
+\usepackage{amsmath,amsfonts}
+\numberwithin{equation}{subsection} % section.subsection.式番号 / section.式番号なら{equation}{section}
+\usepackage{bm}
+\usepackage{color}
+\usepackage[version=4]{mhchem} % graphicx 使用中にこれを使うとdvipdfmxを使ってても BoundingBox 情報のない画像ファイルだと BoundingBox を生成できなくなるので、手動設定かEPS変換が必要
+
+% ルビ
+\usepackage{pxrubrica}
+% 文章を囲む
+\usepackage{ascmac}
+% 複数行コメントアウト（\if0と\fiで囲むやつはパッケージなしで可能）
+\usepackage{comment}
+
+% 表
+\usepackage{multirow} % 縦方向セル結合
+\usepackage{threeparttable} % 表に脚注追加
+\usepackage{longtable} % 長い表
+\usepackage{array} % 表を中央揃えにして幅指定
+\newcolumntype{C}[1]{>{\hfil}m{#1}<{\hfil}}
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{caption} % 図キャプション設定パッケージ
+
+\renewcommand{\figurename}{Fig} % 図からFig.に変更
+\renewcommand{\tablename}{Table} % 図からTable.に変更
+
+\numberwithin{figure}{subsection} % section.subsection.図番号 / section.図番号なら{figure}{section}
+
+\usepackage{subfig} % 図を並べる
+\usepackage[subrefformat=parens]{subcaption}
+
+% 参考文献関係
+\usepackage[sorting=none, refsegment=section]{biblatex} % 本文中での参照順：sorting=none, 章/節ごとにリスト表示：refsegment=section
+\addbibresource{zemi.bib} % 参考文献ファイルのリスト（.bibファイル）を指定
+
+% BiBTeX関連
+\usepackage{url}
+
+% 行番号を表示する。添削時のみに使い、事務提出版ではコメントアウトする
+%\usepackage{lineno}
+%\linenumbers
+
+% hyperref パッケージは，かなり多くのコマンドを再定義するため，できるだけ後ろの方で読み込むように
+% PDF 内で外部リンクや文書内リンクを生成したい場合に使う（好みによる）
+% 印刷時に色が出るかどうかは、使用する PDF viewer の挙動による。
+% 紙媒体で修論を提出する場合、文字色は黒にするのが適切なので要注意。
+\usepackage[dvipdfmx,colorlinks=true,allcolors=blue]{hyperref}
+%\usepackage[hidelinks]{hyperref}
+% PDF 内のしおりの文字化けを防ぐ
+% 先頭に \RequirePackage{plautopatch} を追加すれば 2020 年以降の TeX 環境では不要
+\usepackage{pxjahyper} % (u)pLaTeXのときのみかく
+
+% 問題番号設定
+\newcounter{toinum}
+\newcommand{\toi}{
+  \refstepcounter{toinum}
+  \noindent\textbf{問題\thesection.\thetoinum.}\par
+}
+\newcounter{subtoinum}[toinum]
+\newcommand{\subtoi}{
+  \refstepcounter{subtoinum}
+  \noindent\textbf{(\thesubtoinum) }
+}
+
+
+
+
+\begin{document}
+
+\include{1_Introduction}
+\include{2_CritReactorData}
+\include{3_Transport}
+
+%\include{}
+
+
+
+\end{document}
